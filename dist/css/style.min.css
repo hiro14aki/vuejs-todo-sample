@@ -1,0 +1,10 @@
+.mediaBox {
+  padding: 10px; }
+  .mediaBox__title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FF0000; }
+  .mediaBox__contents {
+    font-size: 24px; }
+
+/*# sourceMappingURL=style.min.css.map*/

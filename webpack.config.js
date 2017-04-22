@@ -1,6 +1,12 @@
 // let webpack = require('webpack');
 
 const path = require('path')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+
+const extractSass = new ExtractTextPlugin({
+  filename: "./css/style.min.css",
+  disable: process.env.NODE_ENV === "development"
+})
 
 module.exports = {
   entry: './src/app.js',
@@ -25,9 +31,20 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: "style-loader!css-loader!sass-loader"
+        use: extractSass.extract({
+          use: [{
+            loader: "css-loader"
+          }, {
+            loader: "sass-loader"
+          }],
+          // use style-loader in development
+          fallback: "style-loader"
+        })
       }
     ]
   },
+  plugins: [
+    extractSass
+  ],
   devtool: 'source-map'
 };
