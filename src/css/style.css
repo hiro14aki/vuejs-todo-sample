@@ -2,6 +2,10 @@ body {
   padding: 20px;
 }
 
-:local(.catsFavorite) {
+:local(.mediaBox) {
   color: red;
 }
+
+/*.mediaBox {
+  color: red;
+}*/

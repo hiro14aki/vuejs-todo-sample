@@ -1,6 +1,6 @@
 <style>
   .welcomeMessage {
-    color: #00FF00;
+    color: #dedede;
   }
 </style>
 

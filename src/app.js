@@ -1,32 +1,11 @@
-let $ = require('jquery'),
-    style = require('./css/style.css');
-// require('./css/style.scss');
+import $ from 'jquery'
+import Vue from 'vue'
+import css from './css/style.css'
+import inputText from './component/InputText.vue'
 
-let Vue = require('vue')
+const ul = $('<ul></ul>').appendTo('body')
 
-// cssをJS内に組み込む
-var foo = style.catsFavorite;
-
-$('<h1>Cats</h1>').addClass(foo).appendTo('body');
-
-const ul = $('<ul></ul>').appendTo('body');
-for (const cat of cats) {
-  $('<li></li>').text(cat).appendTo(ul);
-}
-
-// Test for webpack and vue.js
-// この方法はスタンドアロン版。NPMインストールはランタイム版でインストールされる。
-// let Vue = require('vue')
-// let demo = new Vue({
-//   el: '#demo',
-//   data: {
-//     message: 'Hello Vue.js!'
-//   }
-// });
-
-// Test for webpack and vue.js for runtime ver.
-let inputText = require('./component/InputText.vue')
-// import inputText from './component/InputText.vue'
+$('.mediaBox').addClass(css.mediaBox)
 
 let demo = new Vue({
   el: '#demo',
