@@ -8,11 +8,16 @@ const extractSass = new ExtractTextPlugin({
   disable: process.env.NODE_ENV === "development"
 })
 
-module.exports = {
+const extractTodoSass = new ExtractTextPlugin({
+  filename: "./css/todo.min.css",
+  disable: process.env.NODE_ENV === "development"
+})
+
+module.exports = [{
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.bundle.js'
+    filename: './js/app.bundle.js'
   },
   module: {
     rules: [
@@ -47,4 +52,43 @@ module.exports = {
     extractSass
   ],
   devtool: 'source-map'
-};
+},{
+  entry: './src/todo.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: './js/todo.app.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader",
+      },
+      {
+        test: /\.scss$/,
+        use: extractTodoSass.extract({
+          use: [{
+            loader: "css-loader"
+          }, {
+            loader: "sass-loader"
+          }],
+          // use style-loader in development
+          fallback: "style-loader"
+        })
+      }
+    ]
+  },
+  plugins: [
+    extractTodoSass
+  ],
+  devtool: 'source-map'
+}];
