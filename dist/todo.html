@@ -23,13 +23,14 @@
       <hr>
 
       <div class="taskListOperator">
-        <button class="btn btn-default" type="button" name="button">Delete finished tasks.</button>
+        <button v-on:click="deleteTasks" class="btn btn-default" type="button" name="button">Delete finished tasks.</button>
       </div>
 
 
       <!-- Todo list -->
       <div class="list-group">
         <task-item v-for="task in tasks" :task="task"></task-item>
+        <p v-show="tasks.length < 1" class="text-muted">All tasks finished!!</p>
       </div>
 
     </div>

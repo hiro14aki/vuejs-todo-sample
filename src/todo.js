@@ -31,14 +31,23 @@ let taskForm = {
 let taskItem = {
   template: `
     <label class="list-group-item">
-      <input type="checkbox" name="" value="">
+      <span v-on:click.preven="updateTask" class="pull-right btn btn-link">Edit</span>
+      <input v-model="task.finished" type="checkbox" name="" value="">
       {{ task.name }}
     </label>
   `,
-  props: ['task']
+  props: [
+    'task'
+  ],
+  methods: {
+    updateTask: function(event) {
+      let newTaskName = window.prompt('Task name', this.task.name)
+      if(typeof newTaskName === 'string'){
+        this.task.name = newTaskName
+      }
+    }
+  }
 };
-
-console.log(taskItem);
 
 window.app = new Vue({
   el: '#app',
@@ -49,18 +58,24 @@ window.app = new Vue({
   data: {
     newTask: { name: '' },
     tasks: [
-      { name: 'Buy milk.'},
-      { name: 'Call to Alice.'},
-      { name: 'Write the memo.'}
+      { name: 'Buy milk.', finished: false},
+      { name: 'Call to Alice.', finished: false},
+      { name: 'Write the memo.', finished: false}
     ],
   },
   computed: {
   },
   methods: {
-    newTaskSubmit: function(event){
-      console.log(this.newTask.name) // TODO: implement
+    newTaskSubmit: function(event) {
+      console.log(this.newTask.name)
       this.tasks.unshift(this.newTask)
       this.newTask = { name: '' }
     },
+    deleteTasks: function(event) {
+      this.tasks = this.tasks.filter(val => {
+        console.log(val.finished)
+        return !val.finished
+      })
+    }
   },
 });
