@@ -5,15 +5,27 @@ import './css/todo.scss'
 
 let taskForm = {
   template: `
-    <form class="" action="index.html" method="post">
+    <form v-on:submit.prevent="formSubmit" class="" action="index.html" method="post">
       <div class="input-group">
-        <input class="form-control" type="text" name="" value="" placeholder="Buy the MacbookPro">
+        <input v-model="task.name" class="form-control" type="text" name="" value="" placeholder="Buy the MacbookPro">
         <span class="input-group-btn">
-          <button class="btn btn-primary" type="button" name="button">Add new Task.</button>
+          <button class="btn btn-primary" type="submit" name="button">Add new Task.</button>
         </span>
       </div>
     </form>
-  `
+  `,
+  props: [
+    'task',
+    'on-submit'
+  ],
+  methods: {
+    formSubmit: function(event){
+      if(!this.task.name){
+        return
+      }
+      this.onSubmit(event, this.task)
+    }
+  }
 };
 
 let taskItem = {
@@ -31,10 +43,11 @@ console.log(taskItem);
 window.app = new Vue({
   el: '#app',
   components: {
-    taskForm: taskForm,
+    'task-form': taskForm,
     'task-item': taskItem,
   },
   data: {
+    newTask: { name: '' },
     tasks: [
       { name: 'Buy milk.'},
       { name: 'Call to Alice.'},
@@ -44,5 +57,10 @@ window.app = new Vue({
   computed: {
   },
   methods: {
+    newTaskSubmit: function(event){
+      console.log(this.newTask.name) // TODO: implement
+      this.tasks.unshift(this.newTask)
+      this.newTask = { name: '' }
+    },
   },
 });
