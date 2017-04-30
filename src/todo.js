@@ -1,53 +1,8 @@
 import $ from 'jquery'
 import Vue from 'vue'
 import './css/todo.scss'
-// import inputText from './component/InputText.vue'
-
-let taskForm = {
-  template: `
-    <form v-on:submit.prevent="formSubmit" class="" action="index.html" method="post">
-      <div class="input-group">
-        <input v-model="task.name" class="form-control" type="text" name="" value="" placeholder="Buy the MacbookPro">
-        <span class="input-group-btn">
-          <button class="btn btn-primary" type="submit" name="button">Add new Task.</button>
-        </span>
-      </div>
-    </form>
-  `,
-  props: [
-    'task',
-    'on-submit'
-  ],
-  methods: {
-    formSubmit: function(event){
-      if(!this.task.name){
-        return
-      }
-      this.onSubmit(event, this.task)
-    }
-  }
-};
-
-let taskItem = {
-  template: `
-    <label class="list-group-item">
-      <span v-on:click.preven="updateTask" class="pull-right btn btn-link">Edit</span>
-      <input v-model="task.finished" type="checkbox" name="" value="">
-      {{ task.name }}
-    </label>
-  `,
-  props: [
-    'task'
-  ],
-  methods: {
-    updateTask: function(event) {
-      let newTaskName = window.prompt('Task name', this.task.name)
-      if(typeof newTaskName === 'string'){
-        this.task.name = newTaskName
-      }
-    }
-  }
-};
+import taskForm from './component/taskForm.vue'
+import taskItem from './component/taskItem.vue'
 
 window.app = new Vue({
   el: '#app',
