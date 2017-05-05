@@ -1,4 +1,51 @@
+@import "base";
+
+body {
+    font-family: "ヒラギノ角ゴ Pro W3",Hiragino Kaku Gothic Pro,"メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック",MS PGothic,sans-serif;
+    color: #383838;
+    background-color: #fff;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.heading-h1 {
+  font-size: 26px;
+}
+
+// main contents
+.main {
+  width: 980px;
+  margin: 0px auto;
+
+  &__header{
+    margin-top: 10px;
+  }
+
+  &__contents {
+    margin-top: 20px;
+
+    & > * {
+      margin-top: 20px;
+    }
+    & > *:first-child {
+      margin-top: 0px !important;
+    }
+  }
+}
+
 .taskListOperator {
-  text-align: right;
-  margin-bottom: 14px;
+  font-size: 10px;
+
+  &__button {
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    height: 30px;
+    width: 150px;
+  }
 }

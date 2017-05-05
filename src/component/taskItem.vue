@@ -3,8 +3,8 @@
 </style>
 
 <template>
-  <label class="list-group-item">
-    <span v-on:click.prevent="updateTask" class="pull-right btn btn-link">Edit</span>
+  <label class="">
+    <span v-on:click.prevent="updateTask" class="">Edit</span>
     <input v-model="task.finished" type="checkbox" name="" value="">
     {{ task.name }}
   </label>
