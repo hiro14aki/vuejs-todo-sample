@@ -27,10 +27,10 @@
         </div>
 
         <!-- Todo list -->
-        <div class="">
+        <ul class="todo">
           <task-item v-for="task in tasks" :task="task"></task-item>
-          <p v-show="tasks.length < 1" class="">All tasks finished!!</p>
-        </div>
+          <li v-show="tasks.length < 1" class="">All tasks finished!!</li>
+        </ul>
       </div>
 
     </div>
