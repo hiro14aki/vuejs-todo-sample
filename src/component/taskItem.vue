@@ -42,8 +42,8 @@
 <template>
   <ul class="todolist">
     <li v-for="task in tasks" class="todolist__item">
-      <div class="">
-        <input v-model="task.finished" type="checkbox" name="" value="" class="">
+      <div>
+        <input v-model="task.finished" type="checkbox">
         <span class="todolist__itemContent">{{ task.name }}</span>
       </div>
       <span v-on:click.prevent="updateTask" class="todolist__itemEdit">Edit</span>
