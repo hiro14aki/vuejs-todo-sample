@@ -1,36 +1,62 @@
 <style lang="sass">
 .todolist {
-  display: table;
-  width: 100%;
-  padding: 5px;
+  border: 1px solid #dedede;
+  border-radius: 4px;
 
   & > * {
-    display: table-cell;
+    border-top: 1px solid #dedede;
+  }
+  & > *:first-child {
+    border-top: none;
   }
 
-  &__edit {
-    width: 200px;
-  }
+  &__item{
+    display: table;
+    width: 100%;
 
+    & > * {
+      display: table-cell;
+      padding: 10px 5px 10px 10px;
+    }
+
+    &Edit {
+      border-left: 1px solid #dedede;
+      width: 100px;
+      text-align: center;
+      background: #f3f3f3;
+    }
+
+    &Content {
+      padding-left: 5px;
+    }
+
+    &--finished {
+      padding: 10px 5px;
+      text-align: center;
+    }
+  }
 }
 
 </style>
 
 <template>
-  <li class="todolist">
-    <div class="">
-      <input v-model="task.finished" type="checkbox" name="" value="" class="todolist__item">
-      {{ task.name }}
-    </div>
-    <span v-on:click.prevent="updateTask" class="todolist__edit">Edit</span>
-  </li>
+  <ul class="todolist">
+    <li v-for="task in tasks" class="todolist__item">
+      <div class="">
+        <input v-model="task.finished" type="checkbox" name="" value="" class="">
+        <span class="todolist__itemContent">{{ task.name }}</span>
+      </div>
+      <span v-on:click.prevent="updateTask" class="todolist__itemEdit">Edit</span>
+    </li>
+    <li v-show="tasks.length < 1" class="todolist__item--finished">All tasks finished!!</li>
+  </ul>
 
 </template>
 
 <script>
 export default {
   props: [
-    'task'
+    'tasks'
   ],
   methods: {
     updateTask: function(event) {
