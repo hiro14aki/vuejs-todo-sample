@@ -28,7 +28,7 @@
 <template>
     <form v-on:submit.prevent="formSubmit" class="" action="index.html" method="post">
       <div class="taskform">
-        <input v-model="task.name" class="taskform__input" type="text" name="" value="" placeholder="Buy the MacbookPro">
+        <input v-model="task.name" class="taskform__input" type="text" name="" value="" placeholder="Add the ToDo.">
         <button class="taskform__button" type="submit" name="button">Add new Task.</button>
       </div>
     </form>

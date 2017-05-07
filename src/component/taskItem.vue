@@ -41,12 +41,12 @@
 
 <template>
   <ul class="todolist">
-    <li v-for="task in tasks" class="todolist__item">
+    <li v-for="(task, index) in tasks" class="todolist__item">
       <div>
         <input v-model="task.finished" type="checkbox">
         <span class="todolist__itemContent">{{ task.name }}</span>
       </div>
-      <span v-on:click.prevent="updateTask" class="todolist__itemEdit">Edit</span>
+      <span v-on:click.prevent="updateTask(index)" class="todolist__itemEdit">Edit</span>
     </li>
     <li v-show="tasks.length < 1" class="todolist__item--finished">All tasks finished!!</li>
   </ul>
@@ -59,8 +59,8 @@ export default {
     'tasks'
   ],
   methods: {
-    updateTask: function(event) {
-      let newTaskName = window.prompt('Task name', this.task.name)
+    updateTask: function(index, event) {
+      let newTaskName = window.prompt('Task name', this.tasks[index].name)
       if(typeof newTaskName === 'string'){
         this.task.name = newTaskName
       }

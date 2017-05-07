@@ -20241,8 +20241,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['tasks'],
   methods: {
-    updateTask: function updateTask(event) {
-      var newTaskName = window.prompt('Task name', this.task.name);
+    updateTask: function updateTask(index, event) {
+      var newTaskName = window.prompt('Task name', this.tasks[index].name);
       if (typeof newTaskName === 'string') {
         this.task.name = newTaskName;
       }
@@ -20279,7 +20279,7 @@ window.app = new __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */]({
   },
   data: {
     newTask: { name: '' },
-    tasks: [{ name: 'Buy milk.', finished: false }, { name: 'Call to Alice.', finished: false }, { name: 'Write the memo.', finished: false }]
+    tasks: [{ name: 'Set up the development environment.', finished: false }, { name: 'Implement the function.', finished: false }, { name: 'Release code.', finished: false }]
   },
   computed: {},
   methods: {
@@ -22560,7 +22560,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "",
       "value": "",
-      "placeholder": "Buy the MacbookPro"
+      "placeholder": "Add the ToDo."
     },
     domProps: {
       "value": (_vm.task.name)
@@ -22594,7 +22594,7 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('ul', {
     staticClass: "todolist"
-  }, [_vm._l((_vm.tasks), function(task) {
+  }, [_vm._l((_vm.tasks), function(task, index) {
     return _c('li', {
       staticClass: "todolist__item"
     }, [_c('div', [_c('input', {
@@ -22635,7 +22635,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       on: {
         "click": function($event) {
           $event.preventDefault();
-          _vm.updateTask($event)
+          _vm.updateTask(index)
         }
       }
     }, [_vm._v("Edit")])])

@@ -13,9 +13,9 @@ window.app = new Vue({
   data: {
     newTask: { name: '' },
     tasks: [
-      { name: 'Buy milk.', finished: false},
-      { name: 'Call to Alice.', finished: false},
-      { name: 'Write the memo.', finished: false}
+      { name: 'Set up the development environment.', finished: false},
+      { name: 'Implement the function.', finished: false},
+      { name: 'Release code.', finished: false}
     ],
   },
   computed: {
