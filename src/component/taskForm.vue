@@ -20,7 +20,7 @@
       margin: 0 auto;
       border-left: 1px solid #dedede;
       border-radius: 0px 4px 4px 0px;
-      background-color: #DC9FB4;
+      background-color: #FEDFE1;
     }
   }
 </style>
