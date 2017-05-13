@@ -1,10 +1,10 @@
 <style lang="sass">
   .taskform {
     position: relative;
+    height: 30px;
 
     &__input {
       width: 100%;
-      height: 30px;
       padding: 10px;
       border: 1px solid #dedede;
       border-radius: 4px;
@@ -16,7 +16,6 @@
       bottom: 0px;
       right: 0px;
       width: 300px;
-      height: 30px;
       margin: 0 auto;
       border-left: 1px solid #dedede;
       border-radius: 0px 4px 4px 0px;
