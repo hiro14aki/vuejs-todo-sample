@@ -10,21 +10,21 @@
   "author": "Hiroaki Imai",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.14.0",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.14.0",
-    "css-loader": "^0.28.0",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "node-sass": "^4.5.2",
-    "sass-loader": "^6.0.3",
-    "style-loader": "^0.16.1",
-    "vue-loader": "^11.3.4",
-    "vue-template-compiler": "^2.1.6",
-    "webpack": "^2.4.1"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^4.3.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.44.2"
   },
   "dependencies": {
-    "babel-polyfill": "^6.13.0",
-    "jquery": "^3.1.1",
-    "vue": "^2.1.6"
+    "babel-polyfill": "^6.26.0",
+    "jquery": "^3.5.1",
+    "vue": "^2.6.12"
   }
 }
